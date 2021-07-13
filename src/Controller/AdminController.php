@@ -97,4 +97,15 @@ class AdminController extends BaseController
 
         return $this->render('admin.detail.author.html.twig', $params);
     }
+
+    /**
+     * Добавление автора
+     *
+     * @Route("/admin/add-author", name="admin-add-author")
+     * @return Response
+     */
+    public function addAuthorController(): Response
+    {
+        return $this->render('admin.create.author.html.twig');
+    }
 }

@@ -27,6 +27,12 @@ class Author extends AbstractAPI
     public function updateAuthor($id): JsonResponse
     {
         try {
+            if (!$this->isGranted('ROLE_ADMIN')) {
+                throw new APIException(
+                    'Недостаточно прав для изменения автора',
+                    Response::HTTP_FORBIDDEN
+                );
+            }
 
             $author = $this->getDoctrine()->getRepository(\App\Entity\Author::class)->find($id);
             if (!$author instanceof \App\Entity\Author) {

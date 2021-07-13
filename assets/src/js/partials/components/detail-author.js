@@ -22,8 +22,9 @@ function updateAuthorInfo() {
                 detailAuthorHeader.text(authorData['name']);
             },
             error: function (data) {
+                console.log(data);
                 let errorText = 'Возникла ошибка при отправке запроса. \n Попробуйте позже';
-                if (!!data['responseJSON']['error']) {
+                if (!!data['responseJSON'] && !!data['responseJSON']['error']) {
                     errorText = data['responseJSON']['error'];
                 }
                 $.toast({
@@ -48,7 +49,7 @@ function deleteAuthor() {
             },
             error: function (data) {
                 let errorText = 'Возникла ошибка при отправке запроса. \n Попробуйте позже';
-                if (!!data['responseJSON']['error']) {
+                if (!!data['responseJSON'] && !!data['responseJSON']['error']) {
                     errorText = data['responseJSON']['error'];
                 }
                 $.toast({
@@ -71,11 +72,11 @@ function addAuthor() {
             method: 'POST',
             data: authorData,
             success: function () {
-                window.location.replace('/authors/');
+                window.location.replace('/admin/authors/');
             },
             error: function (data) {
                 let errorText = 'Возникла ошибка при отправке запроса. \n Попробуйте позже';
-                if (!!data['responseJSON']['error']) {
+                if (!!data['responseJSON'] && !!data['responseJSON']['error']) {
                     errorText = data['responseJSON']['error'];
                 }
                 $.toast({

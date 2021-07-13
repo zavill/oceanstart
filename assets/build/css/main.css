@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -9,17 +10,43 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   /*transition: 150ms ease-in-out,  transform 150ms ease;*/
   -webkit-appearance: none;
   -moz-appearance: none;
-  box-sizing: unset;
-}
+  box-sizing: unset; }
 
 #main {
   margin-left: 30px;
-  margin-top: 30px;
-}
+  margin-top: 30px; }
+
 .flex-container {
-  display: flex;
-}
+  display: flex; }
 
 .flex-row {
-  flex-direction: row;
-}
+  flex-direction: row; }
+
+/* Хидер */
+header button {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 150px; }
+
+/* Компоненты */
+#sort-block {
+  margin-bottom: 30px; }
+
+#filter-block {
+  background-color: #e2dfdf; }
+
+.filter-item {
+  margin-top: 15px; }
+  .filter-item select {
+    width: 211px; }
+  .filter-item input {
+    width: 203px; }
+
+.filter-button {
+  margin-top: 15px;
+  padding: 5px;
+  width: 211px; }
+
+#result-block {
+  margin-left: 60px; }
+/*# sourceMappingURL=main.css.map */

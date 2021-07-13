@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Ocean Start</title>
-        <link rel="stylesheet" type="text/css" href="/assets/build/css/main.css">
-        <link href="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css" type="text/css"
-              rel="stylesheet">
-        <script type="text/javascript" src="/assets/build/libs/jquery/jquery-3.6.0.min.js"></script>
-        <script src="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-        <script type="text/javascript" src="/assets/build/js/scripts.js"></script>
-    </head>
-    <body>
-    <header>
-        <button><a href="#">Главная</a></button>
-        <button><a href="#">Админ-панель</a></button>
-    </header>
-        <div id="main">
-            {% block body %}{% endblock %}
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Ocean Start</title>
+    <link rel="stylesheet" type="text/css" href="/assets/build/css/main.css">
+    <link href="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css" type="text/css"
+          rel="stylesheet">
+    <script type="text/javascript" src="/assets/build/libs/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+    <script type="text/javascript" src="/assets/build/js/scripts.js"></script>
+</head>
+<body>
+<header>
+    <button><a href="{{ url('home') }}">Главная</a></button>
+    <button><a href="{{ url('admin-panel') }}">Админ-панель</a></button>
+    {% if is_granted('ROLE_ADMIN') %}
+        <button><a href="{{ url('admin-add-book') }}">Добавить книгу</a></button>
+        <button><a href="{{ url('admin-authors') }}">Авторы</a></button>
+        <button><a href="{{ url('admin-add-author') }}">Добавить автора</a></button>
+    {% endif %}
+</header>
+<div id="main">
+    {% block body %}{% endblock %}
+</div>
+</body>
 </html>

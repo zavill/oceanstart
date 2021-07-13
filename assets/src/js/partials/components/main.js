@@ -1,3 +1,4 @@
+let booksBlock;
 let booksData = {};
 $(document).ready(function () {
         $('#filter-button').on('click', updateBookList);

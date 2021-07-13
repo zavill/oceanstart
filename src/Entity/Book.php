@@ -133,7 +133,7 @@ class Book
             'id' => $this->getId(),
             'name' => $this->getName(),
             'shortDescription' => $this->getShortDescription(),
-            'publishDate' => $this->getPublishDate()->format('d-m-Y'),
+            'publishDate' => $this->getPublishDate()->format('d.m.Y'),
             'author' => $this->getAuthor()->getName()
         ];
 

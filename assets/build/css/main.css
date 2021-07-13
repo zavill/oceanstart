@@ -22,6 +22,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .flex-row {
   flex-direction: row; }
 
+.flex-column {
+  flex-direction: column; }
+
+select {
+  width: 211px; }
+
+input {
+  width: 203px; }
+
 /* Хидер */
 header button {
   margin-top: 30px;
@@ -37,10 +46,6 @@ header button {
 
 .filter-item {
   margin-top: 15px; }
-  .filter-item select {
-    width: 211px; }
-  .filter-item input {
-    width: 203px; }
 
 .filter-button {
   margin-top: 15px;
@@ -49,4 +54,12 @@ header button {
 
 #result-block {
   margin-left: 60px; }
+
+.book-item {
+  margin-top: 15px; }
+
+.book-buttons {
+  max-width: 211px; }
+  .book-buttons .book-button {
+    margin-top: 10px; }
 /*# sourceMappingURL=main.css.map */

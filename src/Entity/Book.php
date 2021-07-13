@@ -126,4 +126,21 @@ class Book
 
         return $this;
     }
+
+    public function toJson(): array
+    {
+        $result = [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'shortDescription' => $this->getShortDescription(),
+            'publishDate' => $this->getPublishDate()->format('d-m-Y'),
+            'author' => $this->getAuthor()->getName()
+        ];
+
+        foreach ($this->coAuthor as $coAuthor) {
+            $result['coAuthor'][] = $coAuthor->getName();
+        }
+
+        return $result;
+    }
 }

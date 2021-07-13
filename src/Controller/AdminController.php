@@ -24,7 +24,7 @@ class AdminController extends BaseController
             'authors' => $this->getAllAuthorsAction()
         ];
 
-        return $this->render('admin.index.html.twig', $params);
+        return $this->render('admin/admin.index.html.twig', $params);
     }
 
     /**
@@ -46,7 +46,7 @@ class AdminController extends BaseController
             'authors' => $this->getAllAuthorsAction()
         ];
 
-        return $this->render('admin.detail.book.html.twig', $params);
+        return $this->render('admin/books/admin.detail.book.html.twig', $params);
     }
 
     /**
@@ -60,7 +60,7 @@ class AdminController extends BaseController
         $params = [
             'authors' => $this->getAllAuthorsAction()
         ];
-        return $this->render('admin.create.book.html.twig', $params);
+        return $this->render('admin/books/admin.create.book.html.twig', $params);
     }
 
     /**
@@ -74,7 +74,7 @@ class AdminController extends BaseController
         $params = [
             'authors' => $this->getAllAuthorsAction()
         ];
-        return $this->render('admin.authors.html.twig', $params);
+        return $this->render('admin/authors/admin.authors.html.twig', $params);
     }
 
     /**
@@ -95,7 +95,7 @@ class AdminController extends BaseController
             'author' => $author
         ];
 
-        return $this->render('admin.detail.author.html.twig', $params);
+        return $this->render('admin/authors/admin.detail.author.html.twig', $params);
     }
 
     /**
@@ -106,6 +106,6 @@ class AdminController extends BaseController
      */
     public function addAuthorController(): Response
     {
-        return $this->render('admin.create.author.html.twig');
+        return $this->render('admin/authors/admin.create.author.html.twig');
     }
 }

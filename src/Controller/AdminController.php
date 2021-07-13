@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Author;
 use App\Entity\Book;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -65,7 +66,7 @@ class AdminController extends BaseController
     /**
      * Страница с авторами
      *
-     * @Route("/admin/add-book", name="admin-add-book")
+     * @Route("/admin/authors", name="admin-authors")
      * @return Response
      */
     public function authorsController(): Response
@@ -74,5 +75,26 @@ class AdminController extends BaseController
             'authors' => $this->getAllAuthorsAction()
         ];
         return $this->render('admin.authors.html.twig', $params);
+    }
+
+    /**
+     * Детальная информация об авторе
+     *
+     * @Route("/admin/author/{id}/", name="admin-detail-author")
+     * @param $id
+     * @return Response
+     */
+    public function detailAuthorController($id): Response
+    {
+        $author = $this->getDoctrine()->getRepository(Author::class)->find($id);
+        if (!$author instanceof Author) {
+            return $this->redirectToRoute('admin-authors');
+        }
+
+        $params = [
+            'author' => $author
+        ];
+
+        return $this->render('admin.detail.author.html.twig', $params);
     }
 }

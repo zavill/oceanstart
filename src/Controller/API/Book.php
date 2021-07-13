@@ -51,7 +51,7 @@ class Book extends AbstractAPI
                 $filter['shortDescription'] = $shortDescription;
             }
             if ($publishDate = $this->request->get('publishDate')) {
-                $dateObj = \DateTime::createFromFormat('d-m-Y', $publishDate);
+                $dateObj = \DateTime::createFromFormat('d.m.Y H:i:s', $publishDate . ' 00:00:00');
                 if ($dateObj) {
                     $filter['publishDate'] = $dateObj;
                 } else {

@@ -20,7 +20,7 @@ class BaseController extends AbstractController
      */
     protected function getAllBooksAction()
     {
-        return $this->getDoctrine()->getRepository(Book::class)->findAll();
+        return $this->getDoctrine()->getRepository(Book::class)->findBy([], ['name' => 'ASC']);
     }
 
     /**
@@ -30,7 +30,7 @@ class BaseController extends AbstractController
      */
     protected function getAllAuthorsAction()
     {
-        return $this->getDoctrine()->getRepository(Author::class)->findAll();
+        return $this->getDoctrine()->getRepository(Author::class)->findBy([], ['name' => 'ASC']);
     }
 
 }

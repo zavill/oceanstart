@@ -30,6 +30,9 @@ class BookRepository extends ServiceEntityRepository
         $query = $this->createQueryBuilder('b');
         foreach ($criteria as $propName => $propValue) {
             if ($propName === 'coAuthor') {
+                if (empty($propValue[0])) {
+                    continue;
+                }
                 if (is_array($propValue)) {
                     foreach ($propValue as $key=>$value) {
                         $query->andWhere(":coAuthor$key MEMBER of b.coAuthor");

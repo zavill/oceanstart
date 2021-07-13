@@ -3,11 +3,12 @@
 {% block body %}
     <div id="sort-block">
         <p>Сортировка:</p>
-        <select>
-            <option>По авторам</option>
-            <option>По названию</option>
-            <option>По описанию</option>
-            <option>По дате публикации</option>
+        <select id="sort-select">
+            <option value="">Не задана</option>
+            <option value="author">По авторам</option>
+            <option value="name">По названию</option>
+            <option value="shortDescription">По описанию</option>
+            <option value="publishDate">По дате публикации</option>
         </select>
     </div>
     <div class="flex-container flex-row">
@@ -15,36 +16,38 @@
         <h2>Фильтр</h2>
         <div class="filter-item">
             <p>Автор</p>
-            <select>
+            <select id="author-select">
+                <option value="">Не задан</option>
                 {% for author in authors %}
-                    <option>{{ author.name }}</option>
+                    <option value="{{ author.id }}">{{ author.name }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="filter-item">
             <p>Соавтор</p>
-            <select multiple>
+            <select multiple id="co-author-select">
+                <option value="">Не задан</option>
                 {% for author in authors %}
-                    <option>{{ author.name }}</option>
+                    <option value="{{ author.id }}">{{ author.name }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="filter-item">
             <p>Название</p>
-            <input type="text">
+            <input type="text" id="name-filter">
         </div>
         <div class="filter-item">
             <p>Краткое описание</p>
-            <input type="text">
+            <input type="text" id="desc-filter">
         </div>
         <div class="filter-item">
             <p>Дата публикации (дд.мм.гггг)</p>
-            <input type="text">
+            <input type="text" id="date-filter">
         </div>
-        <button class="filter-button">Поиск</button>
+        <button id="filter-button" class="filter-button">Поиск</button>
     </div>
     <div id="result-block">
-        <ol>
+        <ol id="books-block">
             {% for book in books %}
                 <li>{{ book.name }}. {{ book.author.name }}.
                     {% if book.coauthor %}

@@ -49,19 +49,20 @@
     <div id="result-block">
         <ol id="books-block">
             {% for book in books %}
-                <li>{{ book.name }}. {{ book.author.name }}.
-                    {% if book.coauthor %}
-                        {% for coauthor in book.coauthor %}
-                            {{ coauthor.name }}{{ loop.last ? '.' : ',' }}
-                        {% endfor %}
-                    {% endif %}
-                    {{ book.shortDescription }}.
-                    {{ book.publishDate|date('d.m.Y') }}.
-                </li>
+                <li><a href="{{ url('admin-detail-book', {'id': book.id}) }}">
+                        {{ book.name }}. {{ book.author.name }}.
+                        {% if book.coauthor %}
+                            {% for coauthor in book.coauthor %}
+                                {{ coauthor.name }}{{ loop.last ? '.' : ',' }}
+                            {% endfor %}
+                        {% endif %}
+                        {{ book.shortDescription }}.
+                        {{ book.publishDate|date('d.m.Y') }}.
+                    </a></li>
             {% endfor %}
         </ol>
     </div>
     <script type="text/javascript">
-        let isAdmin = false;
+        let isAdmin = true;
     </script>
 {% endblock %}

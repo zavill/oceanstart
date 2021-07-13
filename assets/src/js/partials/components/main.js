@@ -63,11 +63,19 @@ function prepareBookDOM(data) {
             }
         });
     }
-    return '<li>' +
+    let openTag, closeTag;
+    if (isAdmin) {
+        openTag = '<li><a href="/admin/book/'+data['id']+'">';
+        closeTag = '</a></li>';
+    } else {
+        openTag = '<li>';
+        closeTag = '</li>';
+    }
+    return openTag +
         data['name'] + '. ' +
         data['author'] + '. ' +
         coAuthorsText +
         data['shortDescription'] + '. ' +
         data['publishDate'] + '.'
-    '</li>';
+    closeTag;
 }

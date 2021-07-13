@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="detail-book">
+        <div class="book-item">
+            <p>Автор</p>
+            <select id="author-detail">
+                {% for author in authors %}
+                    <option value="{{ author.id }}">
+                        {{ author.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="book-item">
+            <p>Соавтор</p>
+            <select multiple id="coauthors-detail">
+                <option value="">Не задан</option>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="book-item">
+            <p>Название</p>
+            <input type="text" id="name-detail">
+        </div>
+        <div class="book-item">
+            <p>Краткое описание</p>
+            <input type="text" id="desc-detail">
+        </div>
+        <div class="book-item">
+            <p>Дата публикации (дд.мм.гггг)</p>
+            <input type="text" id="date-detail">
+        </div>
+        <div class="book-buttons flex-container flex-column">
+            <button class="book-button" id="add-book-button">Добавить книгу</button>
+        </div>
+    </div>
+{% endblock %}

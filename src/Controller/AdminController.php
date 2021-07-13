@@ -11,6 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends BaseController
 {
     /**
+     * Главная страница админ-панели
+     *
      * @Route("/admin/", name="admin-panel")
      * @return Response
      */
@@ -25,6 +27,8 @@ class AdminController extends BaseController
     }
 
     /**
+     * Детальная информация о книге
+     *
      * @Route("/admin/book/{id}/", name="admin-detail-book")
      * @param $id
      * @return Response
@@ -42,6 +46,20 @@ class AdminController extends BaseController
         ];
 
         return $this->render('admin.detail.book.html.twig', $params);
+    }
+
+    /**
+     * Добавление книги
+     *
+     * @Route("/admin/add-book", name="admin-add-book")
+     * @return Response
+     */
+    public function addBookController(): Response
+    {
+        $params = [
+            'authors' => $this->getAllAuthorsAction()
+        ];
+        return $this->render('admin.create.book.html.twig', $params);
     }
 
 }

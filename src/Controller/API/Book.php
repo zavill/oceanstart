@@ -198,9 +198,9 @@ class Book extends AbstractAPI
     /**
      * Создание книги
      *
-     * @Route("/{id}", methods={"POST"})
+     * @Route("/", methods={"POST"})
      */
-    public function createBook($id): JsonResponse
+    public function createBook(): JsonResponse
     {
         try {
             if (!$this->isGranted('ROLE_ADMIN')) {

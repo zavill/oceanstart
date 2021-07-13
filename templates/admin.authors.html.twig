@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="result-block">
+        <ol id="authors-block">
+            {% for author in authors %}
+                <li>
+                    <a href="{{ url('admin-detail-author', {'id': author.id}) }}">
+                        {{ author.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ol>
+    <div>
+{% endblock %}

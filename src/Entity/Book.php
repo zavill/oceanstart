@@ -91,6 +91,13 @@ class Book
         return $this;
     }
 
+    public function removeAllCoAuthors(): self
+    {
+        $this->coAuthor->clear();
+
+        return $this;
+    }
+
     public function getName(): ?string
     {
         return $this->name;

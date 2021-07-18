@@ -4,67 +4,72 @@
     <meta charset="UTF-8">
     <title>Ocean Start</title>
     <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./libs/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
-<body>
-<header>
-    <button><a href="#">Главная</a></button>
-    <button><a href="#">Админ-панель</a></button>
-</header>
-<div id="main">
-    <div id="sort-block">
-        <p>Сортировка:</p>
-        <select>
-            <option>По авторам</option>
-            <option>По названию</option>
-            <option>По описанию</option>
-            <option>По дате публикации</option>
-        </select>
-    </div>
-    <div class="flex-container flex-row">
-        <div id="filter-block">
-            <h2>Фильтр</h2>
-            <div class="filter-item">
-                <p>Автор</p>
-                <select>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <p>Соавтор</p>
-                <select multiple>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                    <option>Пушкин</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <p>Название</p>
-                <input type="text">
-            </div>
-            <div class="filter-item">
-                <p>Краткое описание</p>
-                <input type="text">
-            </div>
-            <div class="filter-item">
-                <p>Дата публикации (дд.мм.гггг)</p>
-                <input type="text">
-            </div>
-            <button class="filter-button">Поиск</button>
+<body class="bg-light">
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+        <button><a href="#">Главная</a></button>
+        <button><a href="#">Админ-панель</a></button>
+    </header>
+</div>
+<div id="main" class="container">
+    <div class="row g-5">
+        <div id="sort-block">
+            <p>Сортировка:</p>
+            <select>
+                <option>По авторам</option>
+                <option>По названию</option>
+                <option>По описанию</option>
+                <option>По дате публикации</option>
+            </select>
         </div>
-        <div id="result-block">
-            <ol>
-                <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
-                <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
-                <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
-                <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
-                <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
-            </ol>
+        <div class="flex-container flex-row">
+            <div id="filter-block">
+                <h2>Фильтр</h2>
+                <div class="filter-item">
+                    <p>Автор</p>
+                    <select>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <p>Соавтор</p>
+                    <select multiple>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                        <option>Пушкин</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <p>Название</p>
+                    <input type="text">
+                </div>
+                <div class="filter-item">
+                    <p>Краткое описание</p>
+                    <input type="text">
+                </div>
+                <div class="filter-item">
+                    <p>Дата публикации (дд.мм.гггг)</p>
+                    <input type="text">
+                </div>
+                <button class="filter-button">Поиск</button>
+            </div>
+            <div id="result-block">
+                <ol>
+                    <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
+                    <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
+                    <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
+                    <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
+                    <li>Сказка о рыбаке и рыбке. Пушкин. 02.10.1833.</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>

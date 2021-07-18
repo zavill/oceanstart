@@ -47,7 +47,7 @@
             </div>
             <button id="filter-button" class="filter-button btn btn-primary col-12">Поиск</button>
         </div>
-        <div id="result-block">
+        <div id="result-block" class="col-8">
             <ol id="books-block">
                 {% for book in books %}
                     <li>{{ book.name }}. {{ book.author.name }}.

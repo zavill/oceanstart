@@ -6,21 +6,24 @@
     <link rel="stylesheet" type="text/css" href="/assets/build/css/main.css">
     <link href="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.css" type="text/css"
           rel="stylesheet">
+    <link href="/assets/build/libs/bootstrap-5.0.2-dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="/assets/build/libs/jquery/jquery-3.6.0.min.js"></script>
     <script src="/assets/node_modules/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
     <script type="text/javascript" src="/assets/build/js/scripts.js"></script>
 </head>
-<body>
-<header>
-    <button><a href="{{ url('home') }}">Главная</a></button>
-    <button><a href="{{ url('admin-panel') }}">Админ-панель</a></button>
-    {% if is_granted('ROLE_ADMIN') %}
-        <button><a href="{{ url('admin-add-book') }}">Добавить книгу</a></button>
-        <button><a href="{{ url('admin-authors') }}">Авторы</a></button>
-        <button><a href="{{ url('admin-add-author') }}">Добавить автора</a></button>
-    {% endif %}
-</header>
-<div id="main">
+<body class="bg-light">
+<div class="container">
+    <header class="d-flex justify-content-center py-3">
+        <button class="btn btn-primary"><a class="text-light" href="{{ url('home') }}">Главная</a></button>
+        <button class="btn btn-primary"><a class="text-light" href="{{ url('admin-panel') }}">Админ-панель</a></button>
+        {% if is_granted('ROLE_ADMIN') %}
+            <button class="btn btn-primary"><a class="text-light" href="{{ url('admin-add-book') }}">Добавить книгу</a></button>
+            <button class="btn btn-primary"><a class="text-light" href="{{ url('admin-authors') }}">Авторы</a></button>
+            <button class="btn btn-primary"><a class="text-light" href="{{ url('admin-add-author') }}">Добавить автора</a></button>
+        {% endif %}
+    </header>
+</div>
+<div id="main" class="container">
     {% block body %}{% endblock %}
 </div>
 </body>

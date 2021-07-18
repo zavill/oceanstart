@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="sort-block">
+    <div class="row g-5">
+    <div id="sort-block" class="col-2">
         <p>Сортировка:</p>
-        <select id="sort-select">
+        <select id="sort-select" class="form-select">
             <option value="">Не задана</option>
             <option value="author">По авторам</option>
             <option value="name">По названию</option>
@@ -12,55 +13,56 @@
         </select>
     </div>
     <div class="flex-container flex-row">
-    <div id="filter-block">
-        <h2>Фильтр</h2>
-        <div class="filter-item">
-            <p>Автор</p>
-            <select id="author-select">
-                <option value="">Не задан</option>
-                {% for author in authors %}
-                    <option value="{{ author.id }}">{{ author.name }}</option>
+        <div id="filter-block">
+            <h2>Фильтр</h2>
+            <div class="filter-item">
+                <p>Автор</p>
+                <select id="author-select" class="form-select">
+                    <option value="">Не задан</option>
+                    {% for author in authors %}
+                        <option value="{{ author.id }}">{{ author.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-item">
+                <p>Соавтор</p>
+                <select multiple id="co-author-select" class="form-select">
+                    <option value="">Не задан</option>
+                    {% for author in authors %}
+                        <option value="{{ author.id }}">{{ author.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-item">
+                <p>Название</p>
+                <input type="text" id="name-filter" class="form-control">
+            </div>
+            <div class="filter-item">
+                <p>Краткое описание</p>
+                <input type="text" id="desc-filter" class="form-control">
+            </div>
+            <div class="filter-item">
+                <p>Дата публикации (дд.мм.гггг)</p>
+                <input type="text" id="date-filter" class="form-control">
+            </div>
+            <button id="filter-button" class="filter-button btn btn-primary col-12">Поиск</button>
+        </div>
+        <div id="result-block">
+            <ol id="books-block">
+                {% for book in books %}
+                    <li><a href="{{ url('admin-detail-book', {'id': book.id}) }}">
+                            {{ book.name }}. {{ book.author.name }}.
+                            {% if book.coauthor %}
+                                {% for coauthor in book.coauthor %}
+                                    {{ coauthor.name }}{{ loop.last ? '.' : ',' }}
+                                {% endfor %}
+                            {% endif %}
+                            {{ book.shortDescription }}.
+                            {{ book.publishDate|date('d.m.Y') }}.
+                        </a></li>
                 {% endfor %}
-            </select>
+            </ol>
         </div>
-        <div class="filter-item">
-            <p>Соавтор</p>
-            <select multiple id="co-author-select">
-                <option value="">Не задан</option>
-                {% for author in authors %}
-                    <option value="{{ author.id }}">{{ author.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="filter-item">
-            <p>Название</p>
-            <input type="text" id="name-filter">
-        </div>
-        <div class="filter-item">
-            <p>Краткое описание</p>
-            <input type="text" id="desc-filter">
-        </div>
-        <div class="filter-item">
-            <p>Дата публикации (дд.мм.гггг)</p>
-            <input type="text" id="date-filter">
-        </div>
-        <button id="filter-button" class="filter-button">Поиск</button>
-    </div>
-    <div id="result-block">
-        <ol id="books-block">
-            {% for book in books %}
-                <li><a href="{{ url('admin-detail-book', {'id': book.id}) }}">
-                        {{ book.name }}. {{ book.author.name }}.
-                        {% if book.coauthor %}
-                            {% for coauthor in book.coauthor %}
-                                {{ coauthor.name }}{{ loop.last ? '.' : ',' }}
-                            {% endfor %}
-                        {% endif %}
-                        {{ book.shortDescription }}.
-                        {{ book.publishDate|date('d.m.Y') }}.
-                    </a></li>
-            {% endfor %}
-        </ol>
     </div>
     <script type="text/javascript">
         let isAdmin = true;

@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="mx-auto">
+    <h2 class="text-center">Список авторов</h2>
     <div id="result-block">
         <ol id="authors-block">
             {% for author in authors %}
@@ -11,5 +13,5 @@
                 </li>
             {% endfor %}
         </ol>
-    <div>
+    </div>
 {% endblock %}

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="detail-book">
-        <div class="book-item">
+    <div class="detail-book mx-auto text-center">
+        <div class="book-item col-6 mx-auto">
             <p>Автор</p>
-            <select id="author-detail">
+            <select id="author-detail" class="form-select">
                 {% for author in authors %}
                     <option value="{{ author.id }}">
                         {{ author.name }}
@@ -12,29 +12,29 @@
                 {% endfor %}
             </select>
         </div>
-        <div class="book-item">
+        <div class="book-item col-6 mx-auto">
             <p>Соавтор</p>
-            <select multiple id="coauthors-detail">
+            <select multiple id="coauthors-detail" class="form-select">
                 <option value="">Не задан</option>
                 {% for author in authors %}
                     <option value="{{ author.id }}">{{ author.name }}</option>
                 {% endfor %}
             </select>
         </div>
-        <div class="book-item">
+        <div class="book-item col-6 mx-auto">
             <p>Название</p>
-            <input type="text" id="name-detail">
+            <input type="text" id="name-detail" class="form-control">
         </div>
-        <div class="book-item">
+        <div class="book-item col-6 mx-auto">
             <p>Краткое описание</p>
-            <input type="text" id="desc-detail">
+            <input type="text" id="desc-detail" class="form-control">
         </div>
-        <div class="book-item">
+        <div class="book-item col-6 mx-auto">
             <p>Дата публикации (дд.мм.гггг)</p>
-            <input type="text" id="date-detail">
+            <input type="text" id="date-detail" class="form-control">
         </div>
-        <div class="book-buttons flex-container flex-column">
-            <button class="book-button" id="add-book-button">Добавить книгу</button>
+        <div class="book-buttons flex-container flex-column mx-auto">
+            <button class="book-button btn btn-primary" id="add-book-button">Добавить книгу</button>
         </div>
     </div>
 {% endblock %}

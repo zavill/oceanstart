@@ -1,46 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Книга "<span id="detail-book-header">{{ book.name }}</span>"</h2>
-    <div class="detail-book">
-        <div class="book-item">
-            <p>Автор</p>
-            <select id="author-detail">
-                {% for author in authors %}
-                    <option value="{{ author.id }}"
-                            {% if author.id == book.author.id %} selected {% endif %}>
-                        {{ author.name }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="book-item">
-            <p>Соавтор</p>
-            <select multiple id="coauthors-detail">
-                <option value="">Не задан</option>
-                {% for author in authors %}
-                    <option value="{{ author.id }}"
-                            {% if author in book.coAuthor %} selected {% endif %}>
-                        {{ author.name }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="book-item">
-            <p>Название</p>
-            <input type="text" id="name-detail" value="{{ book.name }}">
-        </div>
-        <div class="book-item">
-            <p>Краткое описание</p>
-            <input type="text" value="{{ book.shortDescription }}" id="desc-detail">
-        </div>
-        <div class="book-item">
-            <p>Дата публикации (дд.мм.гггг)</p>
-            <input type="text" value="{{ book.publishDate|date('d.m.Y') }}" id="date-detail">
-        </div>
-        <div class="book-buttons flex-container flex-column">
-            <button class="book-button" id="update-button">Обновить</button>
-            <button class="book-button" id="delete-button">Удалить</button>
+    <div class="detail-book mx-auto text-center">
+        <h2>Книга "<span id="detail-book-header">{{ book.name }}</span>"</h2>
+        <div class="detail-book">
+            <div class="book-item col-6 mx-auto">
+                <p>Автор</p>
+                <select id="author-detail" class="form-select">
+                    {% for author in authors %}
+                        <option value="{{ author.id }}"
+                                {% if author.id == book.author.id %} selected {% endif %}>
+                            {{ author.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="book-item col-6 mx-auto">
+                <p>Соавтор</p>
+                <select multiple id="coauthors-detail" class="form-select">
+                    <option value="">Не задан</option>
+                    {% for author in authors %}
+                        <option value="{{ author.id }}"
+                                {% if author in book.coAuthor %} selected {% endif %}>
+                            {{ author.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="book-item col-6 mx-auto">
+                <p>Название</p>
+                <input type="text" id="name-detail" value="{{ book.name }}" class="form-control">
+            </div>
+            <div class="book-item col-6 mx-auto">
+                <p>Краткое описание</p>
+                <input type="text" value="{{ book.shortDescription }}" id="desc-detail" class="form-control">
+            </div>
+            <div class="book-item col-6 mx-auto">
+                <p>Дата публикации (дд.мм.гггг)</p>
+                <input type="text" value="{{ book.publishDate|date('d.m.Y') }}" id="date-detail" class="form-control">
+            </div>
+            <div class="book-buttons flex-container flex-column mx-auto">
+                <button class="book-button btn btn-primary" id="update-button">Обновить</button>
+                <button class="book-button btn btn-primary" id="delete-button">Удалить</button>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
